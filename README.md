@@ -5,6 +5,7 @@ This is an event-based dBase file parser for very efficiently reading data from 
 
 This fork original node-dbf with adding iconv-lite encoding (cp866 and others), also fix bug:
 * converting buffer to string.
+* sign in length: fe => -2 length
 
   [![Build Status][travis-image]][travis-url]
   [![Node Version][node-image]][node-url]
