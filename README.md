@@ -3,6 +3,9 @@ DBF Parser
 
 This is an event-based dBase file parser for very efficiently reading data from `*.dbf` files.
 
+This fork original node-dbf with adding iconv-lite encoding (cp866 and others), also fix bug:
+* converting buffer to string.
+
   [![Build Status][travis-image]][travis-url]
   [![Node Version][node-image]][node-url]
   [![NPM Version][npm-image]][npm-url]
@@ -40,8 +43,8 @@ The support options are:
 * encoding `String` The character encoding to use (default = `utf-8`)
 
 Creates a new Parser and attaches it to the specified filename.
-
-    import Parser from 'node-dbf';
+    
+	const Parser = require('node-dbf').default;
     
     let parser = new Parser('/path/to/my/dbase/file.dbf');
 
@@ -102,7 +105,7 @@ This event is fired once the dBase parsing is complete and there are no more rec
 The following code example illustrates a very simple usage for this module:
 
 ```js
-import Parser from 'node-dbf';
+const Parser = require('node-dbf').default;
 
 let parser = new Parser('/path/to/my/dbase/file.dbf');
 

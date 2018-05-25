@@ -1,22 +1,47 @@
 {
-  "name": "node-dbf",
-  "version": "0.3.0",
-  "engines": {
-    "node": ">=7"
-  },
-  "description": "An efficient dBase DBF file parser written in pure JavaScript",
-  "main": "./lib/parser.js",
-  "bin": "./bin/node-dbf.js",
-  "repository": {
+  "_from": "git+https://github.com/akumidv/node-dbf.git",
+  "_id": "node-dbf@0.3.0",
+  "_inBundle": false,
+  "_location": "/node-dbf",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git://github.com/abstractvector/node-dbf.git"
+    "raw": "node-dbf@git+https://github.com/akumidv/node-dbf.git",
+    "name": "node-dbf",
+    "escapedName": "node-dbf",
+    "rawSpec": "git+https://github.com/akumidv/node-dbf.git",
+    "saveSpec": "git+https://github.com/akumidv/node-dbf.git",
+    "fetchSpec": "https://github.com/akumidv/node-dbf.git",
+    "gitCommittish": null
   },
-  "keywords": [
-    "dBase",
-    "dbf"
+  "_requiredBy": [
+    "#DEV:/"
   ],
-  "author": "Matt Knight <abstractvector@users.noreply.github.com>",
-  "license": "MIT",
+  "_resolved": "git+https://github.com/akumidv/node-dbf.git#d396cae0a7852cd4bcb66383ad136906f52bd30f",
+  "_spec": "node-dbf@git+https://github.com/akumidv/node-dbf.git",
+  "_where": "C:\\workspace\\platform-childzem\\applications\\khv-childzem",
+  "author": {
+    "name": "Matt Knight",
+    "email": "abstractvector@users.noreply.github.com"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "bin": {
+    "node-dbf": "./bin/node-dbf.js"
+  },
+  "bugs": {
+    "url": "https://github.com/abstractvector/node-dbf/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "commander": "^2.9.0",
+    "iconv-lite": "^0.4.23"
+  },
+  "deprecated": false,
+  "description": "An efficient dBase DBF file parser written in pure JavaScript",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -25,19 +50,27 @@
     "mocha": "^4.1.0",
     "rimraf": "^2.6.2"
   },
-  "dependencies": {
-    "commander": "^2.9.0"
+  "engines": {
+    "node": ">=7"
+  },
+  "homepage": "https://github.com/abstractvector/node-dbf#readme",
+  "keywords": [
+    "dBase",
+    "dbf"
+  ],
+  "license": "MIT",
+  "main": "./lib/parser.js",
+  "name": "node-dbf",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/abstractvector/node-dbf.git"
   },
   "scripts": {
-    "clean": "rimraf lib && mkdir lib",
-    "build-server": "babel -d ./lib ./src",
     "build": "npm run clean && npm run build-server",
+    "build-server": "babel -d ./lib ./src",
+    "clean": "rimraf lib && mkdir lib",
     "prepare": "npm run build && npm test",
     "test": "mocha --require babel-core/register --recursive"
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  }
+  "version": "0.3.0"
 }
