@@ -47,12 +47,18 @@ export default class Parser extends EventEmitter {
                         buffer = Buffer.concat([overflow,buffer]);
                     }
 
-                    while ((loc < (this.header.start + (this.header.numberOfRecords * this.header.recordLength))) && ((bufLoc + this.header.recordLength) <= buffer.length)) {
-                        this.emit('record', this.parseRecord(++sequenceNumber, buffer.slice(bufLoc, (bufLoc += this.header.recordLength))));
+                    while ((loc < (this.header.start + 
+                        (this.header.numberOfRecords * this.header.recordLength))) && 
+                        ((bufLoc + this.header.recordLength) <= buffer.length)) {                        
+                        this.emit('record', 
+                        this.parseRecord(++sequenceNumber, 
+                            buffer.slice(bufLoc, (bufLoc += this.header.recordLength))));
                     }
 
                     loc += bufLoc;
-                    if (bufLoc < buffer.length) { overflow = buffer.slice(bufLoc, buffer.length); } else { overflow = null; }
+                    if (bufLoc < buffer.length) { 
+                        overflow = buffer.slice(bufLoc, buffer.length); } else { overflow = null; 
+                    }
 
                     return this;
                 }
