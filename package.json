@@ -51,7 +51,7 @@
     "rimraf": "^2.6.2"
   },
   "engines": {
-    "node": ">=7"
+    "node": ">=10"
   },
   "homepage": "https://github.com/abstractvector/node-dbf#readme",
   "keywords": [
