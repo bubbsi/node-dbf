@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { EventEmitter } from 'events';
 
+const iconv  = require('iconv-lite'); // @@ Adding
+
 import Header from './header';
 
 export default class Parser extends EventEmitter {
@@ -40,7 +42,10 @@ export default class Parser extends EventEmitter {
                 
                 while ((buffer = stream.read())) {
                     if (bufLoc !== this.header.start) { bufLoc = 0; }
-                    if (overflow !== null) { buffer = overflow + buffer; }
+                    if (overflow !== null) { 
+                        //buffer = overflow + buffer;// @@ Fix original, becouse  overflow + buffer convert to String
+                        buffer = Buffer.concat([overflow,buffer]);
+                    }
 
                     while ((loc < (this.header.start + (this.header.numberOfRecords * this.header.recordLength))) && ((bufLoc + this.header.recordLength) <= buffer.length)) {
                         this.emit('record', this.parseRecord(++sequenceNumber, buffer.slice(bufLoc, (bufLoc += this.header.recordLength))));
@@ -89,7 +94,8 @@ export default class Parser extends EventEmitter {
     }
 
     parseField(field, buffer) {
-        let value = (buffer.toString(this.encoding)).trim();
+        //let value = (buffer.toString(this.encoding)).trim();// @@ CHANGE to convert with iconv -> russian charset
+        let value = (iconv.decode(buffer, this.encoding)).trim();
 
         if (field.type === 'N') {
             value = parseInt(value, 10);
