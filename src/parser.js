@@ -48,7 +48,7 @@ var Parser = function (_EventEmitter) {
             this.header = new _header2.default(this.filename, this.encoding);
             this.header.parse(function (err) {
 
-                if(err){
+                if(err instanceof Error){
                     _this2.emit('error', err);
                     return;
                 }
